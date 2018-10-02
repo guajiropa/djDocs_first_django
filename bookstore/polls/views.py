@@ -4,9 +4,9 @@ DATE:       :   10/02/2018
 SYNOPSIS    :   Working thru the 'docs.djangoproject.com' tutorial
 """
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, Http404
-from django.template import loader
-from .models import Question
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from .models import Choice, Question
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
