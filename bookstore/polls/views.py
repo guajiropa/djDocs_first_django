@@ -5,7 +5,7 @@ SYNOPSIS    :   Working thru the 'docs.djangoproject.com' tutorial
 """
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Choice, Question
 
 def index(request):
@@ -39,7 +39,7 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id)))
+        return HttpResponseRedirect(reverse_lazy('polls:results', args=[question.id]))
     
 
 
