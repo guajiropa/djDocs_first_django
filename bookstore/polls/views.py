@@ -1,6 +1,6 @@
 """
 AUTHOR      :   Robert James Patterson
-DATE:       :   10/02/2018
+DATE:       :   10/03/2018
 SYNOPSIS    :   Working thru the 'docs.djangoproject.com' tutorial
 """
 from django.shortcuts import get_object_or_404, render
