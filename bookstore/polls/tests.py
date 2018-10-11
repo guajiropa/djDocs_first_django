@@ -1,6 +1,6 @@
 """
 AUTHOR      :   Robert James Patterson
-DATE:       :   10/03/2018
+DATE:       :   10/10/2018
 SYNOPSIS    :   Working thru the 'docs.djangoproject.com' tutorial
 """
 import datetime
@@ -29,6 +29,11 @@ class QuestionIndexViewTests(TestCase):
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
+    def test_past_question(self):
+        """ 
+        Questions with a pub_date in the past are displayed on the index page
+        """
+        create_question(question_text="Past question.", days=-30)
 
 class QuestionModelTests(TestCase):
 
